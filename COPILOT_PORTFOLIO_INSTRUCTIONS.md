@@ -13,7 +13,7 @@ Target audience:
 * CTOs
 * Potential clients
 
-The website must clearly communicate technical expertise, professional experience, and project impact.
+The website must clearly communicate technical expertise, professional experience, project impact, and software engineering mindset.
 
 ---
 
@@ -38,22 +38,33 @@ Do NOT use a database.
 
 All content must be stored in configuration files.
 
-Example:
+Primary content source:
 
 ```php
 config/portfolio.php
 ```
 
-This file will contain:
-
-* Personal information
-* Experiences
-* Skills
-* Projects
-* Contact links
-* Statistics
-
 The application should be fully content-driven through configuration.
+
+## Portfolio Data Architecture
+
+Use a single source of truth:
+
+```php
+return [
+    'profile' => [],
+    'experiences' => [],
+    'projects' => [],
+    'case_studies' => [],
+    'skills' => [],
+    'statistics' => [],
+    'social_links' => [],
+];
+```
+
+All website content must come from this configuration file.
+
+Avoid hardcoded content inside Blade templates.
 
 ---
 
@@ -85,6 +96,53 @@ Avoid:
 * Cartoon styles
 * Excessive animations
 * CV-style appearance
+
+---
+
+# Responsive Design
+
+Responsive design is a first-class requirement.
+
+The website must work perfectly on:
+
+* Mobile
+* Tablet
+* Desktop
+* Large desktop screens
+
+## Mobile First Approach
+
+Design all layouts mobile-first.
+
+Breakpoints:
+
+* Mobile (< 768px)
+* Tablet (768px - 1024px)
+* Desktop (> 1024px)
+* Large Desktop (> 1440px)
+
+## Mobile Requirements
+
+* Hamburger navigation
+* Touch-friendly buttons
+* Optimized typography
+* Single-column layouts where appropriate
+* Responsive cards
+* Optimized timeline display
+
+## Tablet Requirements
+
+* Balanced content density
+* Responsive grids
+* Improved spacing
+
+## Desktop Requirements
+
+* Premium SaaS experience
+* Multi-column layouts
+* Rich visual hierarchy
+
+Every component must be responsive.
 
 ---
 
@@ -122,7 +180,7 @@ Avoid:
 
 ---
 
-# Website Sections
+# Website Structure
 
 The website is a single-page application with smooth scrolling navigation.
 
@@ -141,7 +199,7 @@ Sections order:
 
 # Navigation
 
-Sticky top navigation.
+Sticky navigation bar.
 
 Menu items:
 
@@ -153,13 +211,17 @@ Menu items:
 
 Desktop:
 
-Horizontal menu.
+* Horizontal menu
 
 Mobile:
 
-Hamburger menu.
+* Hamburger menu
 
-Smooth scrolling between sections.
+Features:
+
+* Smooth scrolling
+* Active section highlighting
+* Sticky navigation
 
 ---
 
@@ -167,7 +229,7 @@ Smooth scrolling between sections.
 
 Full viewport height.
 
-## Main Headline
+## Headline
 
 Backend Developer specialized in Laravel & Symfony
 
@@ -185,7 +247,7 @@ Secondary button:
 
 Download Resume
 
-## Hero Content
+## Content
 
 Display:
 
@@ -193,11 +255,11 @@ Display:
 * Job title
 * Short introduction
 
-Include a modern developer visual:
+Include:
 
-* Developer illustration
+* Developer-inspired visual
+* Terminal-inspired component
 * Abstract code pattern
-* Terminal-inspired element
 
 Avoid stock photos.
 
@@ -209,7 +271,7 @@ Purpose:
 
 Introduce the developer.
 
-Content should highlight:
+Topics to highlight:
 
 * 4+ years of PHP development
 * Laravel expertise
@@ -224,15 +286,14 @@ Content should highlight:
 
 Layout:
 
-Two columns on desktop.
-
-Single column on mobile.
+* Two columns on desktop
+* Single column on mobile
 
 ---
 
 # Experience Section
 
-Display a vertical timeline.
+Display a professional timeline.
 
 Each experience contains:
 
@@ -242,8 +303,6 @@ Each experience contains:
 * Description
 * Technologies
 * Key achievements
-
-Experiences:
 
 ## Freelance
 
@@ -262,6 +321,7 @@ Responsibilities:
 * Internal business application development
 * API integrations
 * Business process automation
+* Data processing
 
 ## Reflectiv
 
@@ -287,13 +347,23 @@ Technologies:
 
 ## Training & Bootcamp
 
-Backend development training.
+Backend development education and professional retraining.
 
 ---
 
 # Featured Projects
 
-Display as responsive cards.
+Display both professional and personal projects.
+
+The goal is to demonstrate:
+
+* Real-world experience
+* Technical expertise
+* Product ownership
+* Problem solving
+* Modern development practices
+
+Display projects as responsive cards.
 
 Each project card contains:
 
@@ -302,16 +372,73 @@ Each project card contains:
 * Technologies
 * Key challenge
 * Outcome
+* GitHub link (if available)
+* Live demo link (if available)
 
-Use hover effects.
+---
 
-Modern card design.
+## Professional Project
+
+### Service Vin
+
+Internal business application.
+
+Highlights:
+
+* Stripe integration
+* FedEx integration
+* Business process automation
+* PostgreSQL
+* Laravel architecture
+
+---
+
+## Personal Project
+
+### Akkezxla CDM 2026
+
+Repository:
+
+https://github.com/Paul-Serrano/akkezxla-cdm-2026
+
+Live Demo:
+
+https://akkezxla-cdm-2026.onrender.com/
+
+Description:
+
+A Laravel web application focused on FIFA World Cup 2026 predictions and competition tracking.
+
+Responsibilities:
+
+* Product design
+* Backend development
+* Frontend integration
+* Docker setup
+* Deployment
+* Hosting
+
+Technologies:
+
+* Laravel
+* PHP
+* PostgreSQL
+* Docker
+* Tailwind CSS
+* Render
+
+Highlights:
+
+* End-to-end ownership
+* Production deployment
+* Modern Laravel architecture
+* Cloud hosting
 
 ---
 
 # Case Studies
 
-This section is extremely important.
+This section is critical.
 
 Each case study follows this structure:
 
@@ -329,28 +456,37 @@ Describe technical decisions.
 
 ## Result
 
-Present measurable outcomes.
+Present outcomes and impact.
 
-Create case studies for:
+---
 
-### Service Vin
+## Case Study: Service Vin
 
 Topics:
 
 * Stripe integration
 * FedEx integration
-* Data imports
+* Large data imports
 * Business automation
 
-### Reflectiv
+Goal:
+
+Demonstrate business-oriented software development.
+
+---
+
+## Case Study: Reflectiv
 
 Topics:
 
 * Symfony architecture
 * Prestashop customization
 * Hexagonal architecture
+* Maintainability
 
-The goal is to demonstrate engineering thinking.
+Goal:
+
+Demonstrate architectural thinking.
 
 ---
 
@@ -389,24 +525,22 @@ Display technologies grouped by category.
 * Hexagonal Architecture
 * API Design
 
-Use modern badges or chips.
+Display as modern badges or chips.
 
 ---
 
 # Statistics Section
 
-Display metrics.
-
-Examples:
+Display metrics such as:
 
 * 4+ Years Experience
 * 10+ Projects Delivered
 * Laravel Specialist
 * Freelance & Agency Experience
 
-Use animated counters.
+Use subtle animated counters.
 
-Keep animations subtle.
+Avoid excessive animations.
 
 ---
 
@@ -428,9 +562,10 @@ Optional:
 
 Contact form using Laravel validation.
 
-No database storage required.
+Requirements:
 
-Email sending only.
+* No database
+* Email sending only
 
 ---
 
@@ -440,14 +575,14 @@ Create reusable Blade components for:
 
 * Section Container
 * Section Title
-* Project Card
-* Experience Card
+* CTA Button
 * Timeline Item
+* Experience Card
+* Project Card
 * Skill Badge
 * Statistic Card
-* CTA Button
 
-Keep components highly reusable.
+Components should be reusable and maintainable.
 
 ---
 
@@ -459,8 +594,8 @@ Examples:
 
 * Fade-in on scroll
 * Smooth scrolling
-* Card hover transitions
-* Timeline reveal
+* Card hover effects
+* Timeline reveal effects
 
 Avoid excessive motion.
 
@@ -476,11 +611,11 @@ Target Lighthouse score:
 
 Requirements:
 
-* Lazy-loaded images
-* Optimized assets
+* Optimized images
+* Lazy loading
 * Minimal JavaScript
 * Server-side rendering
-* Responsive images
+* Responsive assets
 
 ---
 
@@ -508,7 +643,7 @@ Requirements:
 * Proper heading hierarchy
 * Keyboard navigation
 * Visible focus states
-* Sufficient color contrast
+* Sufficient contrast ratios
 
 ---
 
@@ -518,24 +653,38 @@ Requirements:
 
 * Clean architecture
 * Reusable Blade components
-* Maintainable Tailwind classes
-* No duplicated markup
 * Mobile-first design
+* Maintainable Tailwind structure
+* No duplicated markup
 * Strong typing where possible
 
 The codebase should reflect the quality expected from an experienced Laravel developer.
 
 ---
 
+# Professional Positioning
+
+The website should position Paul Serrano as:
+
+* Backend Developer
+* Laravel Specialist
+* Symfony Developer
+* API Integration Expert
+* Docker Practitioner
+* Freelance Consultant
+* Software Engineer with an Architecture Mindset
+
+---
+
 # Final Objective
 
-The website should immediately communicate:
+A recruiter should understand within 30 seconds that:
 
-* Experienced PHP developer
-* Laravel and Symfony specialist
-* Strong backend expertise
-* Clean architecture mindset
-* Professional experience
-* Ability to deliver real business value
+* This developer has real professional experience
+* He can build and maintain production applications
+* He understands architecture and business requirements
+* He is comfortable with Laravel and Symfony ecosystems
+* He can work independently or within a team
+* He delivers maintainable software that creates business value
 
 The final result should feel like a premium SaaS product website built by an experienced engineer.
