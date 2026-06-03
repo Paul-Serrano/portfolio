@@ -16,8 +16,7 @@ This project is ready for Render using the blueprint file at [render.yaml](rende
 1. Push your repository to GitHub.
 2. In Render, create a new Blueprint and select this repository.
 3. Render reads [render.yaml](render.yaml) and proposes:
-   - `portfolio-web` (Web Service)
-   - `portfolio-db` (PostgreSQL)
+  - `portfolio-web` (Web Service)
 4. Confirm and deploy.
 
 ## Important Post-Deploy Update
@@ -33,6 +32,7 @@ After first deploy, set your real Render URL in `APP_URL`:
 ## Notes
 
 - Migrations run automatically at container startup.
+- Production uses SQLite by default to avoid a paid managed database when the app does not need one.
 - Default runtime is safe without DB-backed cache/session:
   - `CACHE_STORE=file`
   - `SESSION_DRIVER=file`
@@ -50,9 +50,8 @@ Set these environment variables on the Render Web Service:
 - `APP_DEBUG=false`
 - `APP_KEY=<base64 key from php artisan key:generate --show>`
 - `APP_URL=https://<your-service>.onrender.com`
-- `DB_CONNECTION=pgsql`
-- `DB_HOST=<render postgres host>`
-- `DB_PORT=<render postgres port>`
-- `DB_DATABASE=<render postgres database>`
-- `DB_USERNAME=<render postgres user>`
-- `DB_PASSWORD=<render postgres password>`
+- `DB_CONNECTION=sqlite`
+- `DB_DATABASE=/var/www/html/database/database.sqlite`
+- `CACHE_STORE=file`
+- `SESSION_DRIVER=file`
+- `QUEUE_CONNECTION=sync`

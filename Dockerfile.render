@@ -21,7 +21,6 @@ RUN apk add --no-cache \
     supervisor \
     icu-dev \
     libxml2-dev \
-    libpq-dev \
     libzip-dev \
     oniguruma-dev \
     curl \
@@ -31,8 +30,6 @@ RUN apk add --no-cache \
         bcmath \
         intl \
         mbstring \
-        pdo \
-        pdo_pgsql \
         xml \
         zip
 
