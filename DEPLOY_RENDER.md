@@ -33,8 +33,26 @@ After first deploy, set your real Render URL in `APP_URL`:
 ## Notes
 
 - Migrations run automatically at container startup.
-- Sessions, cache, and queue are configured to use database storage.
+- Default runtime is safe without DB-backed cache/session:
+  - `CACHE_STORE=file`
+  - `SESSION_DRIVER=file`
+  - `QUEUE_CONNECTION=sync`
 - If you later add Redis on Render, you can switch these env vars:
   - `SESSION_DRIVER=redis`
   - `CACHE_STORE=redis`
   - `QUEUE_CONNECTION=redis`
+
+## If You Created The Service Manually (No Blueprint)
+
+Set these environment variables on the Render Web Service:
+
+- `APP_ENV=production`
+- `APP_DEBUG=false`
+- `APP_KEY=<base64 key from php artisan key:generate --show>`
+- `APP_URL=https://<your-service>.onrender.com`
+- `DB_CONNECTION=pgsql`
+- `DB_HOST=<render postgres host>`
+- `DB_PORT=<render postgres port>`
+- `DB_DATABASE=<render postgres database>`
+- `DB_USERNAME=<render postgres user>`
+- `DB_PASSWORD=<render postgres password>`

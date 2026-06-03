@@ -42,11 +42,11 @@ services:
           name: portfolio-db
           property: password
       - key: CACHE_STORE
-        value: database
+        value: file
       - key: SESSION_DRIVER
-        value: database
+        value: file
       - key: QUEUE_CONNECTION
-        value: database
+        value: sync
 
 databases:
   - name: portfolio-db
