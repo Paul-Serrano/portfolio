@@ -12,6 +12,12 @@ mkdir -p storage/framework/{cache,sessions,views} storage/logs bootstrap/cache
 chown -R www-data:www-data storage bootstrap/cache
 chmod -R ug+rwx storage bootstrap/cache
 
+# Drop any local-generated Laravel caches that may have been copied into the image.
+find bootstrap/cache -mindepth 1 -maxdepth 1 -type f -name '*.php' -delete
+find storage/framework/views -mindepth 1 -type f ! -name '.gitignore' -delete
+find storage/framework/cache/data -mindepth 1 -delete 2>/dev/null || true
+find storage/framework/sessions -mindepth 1 -delete 2>/dev/null || true
+
 if [ "${DB_CONNECTION:-sqlite}" = "sqlite" ]; then
 	SQLITE_PATH="${DB_DATABASE:-/var/www/html/database/database.sqlite}"
 	mkdir -p "$(dirname "${SQLITE_PATH}")"

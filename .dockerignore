@@ -4,6 +4,7 @@
 backend/.env
 backend/vendor
 backend/node_modules
+backend/bootstrap/cache/*.php
 backend/storage/logs/*.log
 backend/storage/framework/cache/data/*
 backend/storage/framework/sessions/*
