@@ -1,0 +1,25 @@
+name: Render Redeploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Render Deploy Hook
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "${RENDER_DEPLOY_HOOK_URL}" ]; then
+            echo "RENDER_DEPLOY_HOOK_URL is not set yet. Skipping redeploy."
+            exit 0
+          fi
+
+          echo "Triggering Render deploy hook..."
+          curl --fail --silent --show-error --request POST "${RENDER_DEPLOY_HOOK_URL}"
+          echo "Render redeploy triggered successfully."

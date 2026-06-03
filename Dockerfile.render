@@ -1,0 +1,56 @@
+FROM composer:2.8 AS vendor
+
+WORKDIR /var/www/html
+COPY backend/composer.json backend/composer.lock ./
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+FROM node:22-alpine AS assets
+
+WORKDIR /var/www/html
+COPY backend/package.json backend/package-lock.json* ./
+RUN if [ -f package-lock.json ]; then npm ci; else npm install; fi
+COPY backend/resources ./resources
+COPY backend/public ./public
+COPY backend/vite.config.js ./vite.config.js
+RUN npm run build
+
+FROM php:8.4-fpm-alpine
+
+RUN apk add --no-cache \
+    nginx \
+    supervisor \
+    icu-dev \
+    libxml2-dev \
+    libpq-dev \
+    libzip-dev \
+    oniguruma-dev \
+    curl \
+    bash \
+    gettext \
+    && docker-php-ext-install -j"$(nproc)" \
+        bcmath \
+        intl \
+        mbstring \
+        pdo \
+        pdo_pgsql \
+        xml \
+        zip
+
+WORKDIR /var/www/html
+
+COPY backend/ /var/www/html
+COPY --from=vendor /var/www/html/vendor /var/www/html/vendor
+COPY --from=assets /var/www/html/public/build /var/www/html/public/build
+
+COPY infra/render/nginx/nginx.conf.template /etc/nginx/http.d/default.conf.template
+COPY infra/render/php/custom.ini /usr/local/etc/php/conf.d/custom.ini
+COPY infra/render/supervisor/supervisord.conf /etc/supervisord.conf
+COPY infra/render/scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
+
+RUN mkdir -p /run/nginx /var/lib/nginx/tmp/client_body \
+    && chmod +x /usr/local/bin/entrypoint.sh \
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+EXPOSE 10000
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
