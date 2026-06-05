@@ -1,222 +1,217 @@
 <?php
 
 return [
-
     'profile' => [
         'name' => 'Paul Serrano',
         'title' => 'Backend Developer',
         'headline' => 'Backend Developer specialized in Laravel & Symfony',
         'description' => 'I build scalable, maintainable and business-oriented web applications.',
+        'intro' => 'Backend engineer focused on clean architecture, API integrations, and shipping reliable products from concept to production.',
         'location' => 'France',
-        'email' => 'contact@example.com',
+        'email' => 'paul.serrano08374@gmail.com',
+        'resume_url' => '#',
     ],
 
-    'socials' => [
-        'github' => 'https://github.com/Paul-Serrano',
-        'linkedin' => 'https://www.linkedin.com/in/serrano-paul/',
-    ],
-
-    'statistics' => [
-        [
-            'label' => 'Years Experience',
-            'value' => '4+',
-        ],
-        [
-            'label' => 'Projects Delivered',
-            'value' => '10+',
-        ],
-    ],
-
-    'skills' => [
-        'backend' => [
-            'PHP',
-            'Laravel',
-            'Symfony',
-        ],
-        'database' => [
-            'PostgreSQL',
-            'MySQL',
-        ],
-        'frontend' => [
-            'Livewire',
-            'Tailwind CSS',
-            'Blade',
-            'MaryUI',
-        ],
-        'devops' => [
-            'Docker',
-            'Git',
-            'Linux',
-        ],
-        'architecture' => [
-            'SOLID',
-            'DDD',
-            'Hexagonal Architecture',
-            'API Design',
-        ],
-        'cms' => [
-            'Prestashop',
-            'WordPress',
-        ],
-        'apis' => [
-            'FedEx Ship API',
-            'FedEx Track API',
-            'FedEx Pickup API', 
-            'FedEx Rate API',
-            'Stripe',
-            'football-data.org API',
+    'about' => [
+        'summary' => 'I am a backend developer with 4+ years of PHP experience across freelance missions and agency teams. I specialize in Laravel and Symfony ecosystems, integrating external APIs, improving business workflows, and delivering maintainable software with architectural rigor.',
+        'highlights' => [
+            '4+ years of PHP development',
+            'Laravel and Symfony expertise',
+            'PostgreSQL and data-heavy workflows',
+            'Dockerized delivery and cloud deployment',
+            'SOLID principles and Hexagonal Architecture',
+            'Freelance product ownership',
         ],
     ],
 
     'experiences' => [
         [
             'company' => 'Service Vin',
-            'type' => 'Freelance',
+            'type' => 'Freelance Mission',
             'role' => 'Backend Developer',
             'period' => '2024 - Present',
-            'summary' => 'Development of an internal business application focused on order management and logistics.',
+            'description' => 'Built and evolved an internal business application to centralize operations, automate logistics, and streamline payment processing.',
             'technologies' => [
                 'Laravel',
-                'Livewire',
-                'Tailwind CSS',
-                'MaryUI',
                 'PostgreSQL',
+                'Stripe API',
+                'FedEx API',
                 'Docker',
-                'Plesk',
-            ],
-            'apis' => [
-                'Stripe',
-                'FedEx Ship API',
-                'FedEx Track API',
-                'FedEx Pickup API',
-                'FedEx Rate API',
             ],
             'achievements' => [
-                'Integrated Stripe payments',
-                'Integrated FedEx shipping workflow',
-                'Automated business processes',
-                'Improved logistics operations',
+                'Integrated Stripe for payment handling and reconciliation',
+                'Implemented FedEx shipping and tracking workflows',
+                'Automated repetitive business operations',
+                'Reduced manual data processing across teams',
             ],
         ],
-
         [
             'company' => 'Reflectiv',
             'type' => 'Employee',
             'role' => 'Symfony Developer',
             'period' => '2023 - 2024',
-            'summary' => 'Development and maintenance of Symfony and Prestashop applications.',
+            'description' => 'Developed maintainable backend systems for e-commerce and internal products with an architecture-first approach.',
             'technologies' => [
                 'Symfony',
                 'Prestashop',
                 'PHP',
-                'MySQL',
+                'PostgreSQL',
             ],
             'achievements' => [
-                'Implemented Hexagonal Architecture',
-                'Improved maintainability',
-                'Developed custom business features',
+                'Introduced Hexagonal Architecture principles',
+                'Improved maintainability and testability of core modules',
+                'Delivered custom e-commerce features with long-term support',
             ],
         ],
-
         [
-            'company' => 'WebForMe',
+            'company' => 'Agency Experience',
             'type' => 'Employee',
-            'role' => 'Prestashop Developer',
+            'role' => 'PHP Web Developer',
             'period' => '2022 - 2023',
-            'summary' => 'Development and maintenance of Prestashop stores.',
+            'description' => 'Contributed to client-facing web applications with emphasis on reliability, delivery speed, and code quality.',
             'technologies' => [
-                'Symfony',
-                'Prestashop',
                 'PHP',
-                'MySQL',
+                'Web Development',
             ],
             'achievements' => [
-                'Developed custom Prestashop modules',
-                'Optimized store performance',
-                'Improved user experience',
+                'Delivered production features for multiple client projects',
+                'Maintained legacy and modern codebases in parallel',
+                'Collaborated closely with design and product stakeholders',
             ],
         ],
-
         [
-            'company' => 'Paris Island',
-            'type' => 'Freelance',
-            'role' => 'WordPress Developer',
-            'period' => '2020',
-            'summary' => 'Development and maintenance of a WordPress site.',
+            'company' => 'Training & Bootcamp',
+            'type' => 'Education',
+            'role' => 'Backend Development Retraining',
+            'period' => '2020 - 2021',
+            'description' => 'Professional retraining focused on modern backend engineering, software fundamentals, and project delivery.',
             'technologies' => [
-                'WordPress',
                 'PHP',
-                'MySQL',
+                'Laravel',
+                'Symfony',
             ],
             'achievements' => [
-                'Developed custom WordPress modules',
-                'Optimized site performance',
-                'Improved user experience',
+                'Built end-to-end backend projects',
+                'Strengthened architecture and clean code practices',
+                'Established a production-ready development workflow',
             ],
         ],
-
     ],
-
-
     'projects' => [
         [
-            'slug' => 'akkezxla-cdm-2026',
-            'name' => 'Akkezxla CDM 2026',
-            'type' => 'Personal Project',
-            'description' => 'World Cup 2026 prediction platform built with Laravel.',
+            'slug' => 'service-vin-platform',
+            'title' => 'Service Vin Internal Platform',
+            'type' => 'Professional Project',
+            'description' => 'Internal business application for operations, logistics, and payment workflows.',
             'technologies' => [
                 'Laravel',
+                'PostgreSQL',
+                'Stripe API',
+                'FedEx API',
+                'Docker',
+            ],
+            'challenge' => 'Unify fragmented payment and shipping processes into one reliable system.',
+            'outcome' => 'Automated repetitive operations and improved operational throughput.',
+            'github' => null,
+            'demo' => null,
+            'featured' => true,
+        ],
+        [
+            'slug' => 'akkezxla-cdm-2026',
+            'title' => 'Akkezxla CDM 2026',
+            'type' => 'Personal Project',
+            'description' => 'Laravel platform for FIFA World Cup 2026 predictions and competition tracking.',
+            'technologies' => [
+                'Laravel',
+                'PHP',
                 'PostgreSQL',
                 'Docker',
                 'Tailwind CSS',
+                'Render',
             ],
+            'challenge' => 'Design and ship a production-ready sports prediction product as a solo builder.',
+            'outcome' => 'Delivered an end-to-end application with cloud deployment and responsive UX.',
             'github' => 'https://github.com/Paul-Serrano/akkezxla-cdm-2026',
             'demo' => 'https://akkezxla-cdm-2026.onrender.com/',
             'featured' => true,
-            'highlights' => [
-                'Dockerized infrastructure',
-                'Render deployment',
-                'Football-Data.org integration',
-                'Responsive UI',
+        ],
+    ],
+    'case_studies' => [
+        [
+            'slug' => 'service-vin',
+            'title' => 'Service Vin: Logistics & Payment Automation',
+            'problem' => 'The company relied on manual logistics and payment workflows that slowed execution and increased mistakes.',
+            'solution' => 'Built a Laravel-based internal platform integrating Stripe and FedEx APIs with workflow automation.',
+            'architecture' => [
+                'Service-oriented modules around payments and shipping',
+                'PostgreSQL-backed domain model for operational consistency',
+                'Dockerized local and deployment workflow',
+                'API integration boundaries for resilience and maintainability',
+            ],
+            'result' => [
+                'Reduced manual operations and data handling effort',
+                'Improved shipping visibility and process reliability',
+                'Centralized order and logistics operations in a single system',
+            ],
+        ],
+        [
+            'slug' => 'reflectiv',
+            'title' => 'Reflectiv: Architecture & Maintainability',
+            'problem' => 'Multiple Symfony and Prestashop code paths were difficult to evolve safely.',
+            'solution' => 'Introduced architecture-driven patterns and cleaner boundaries to improve maintainability.',
+            'architecture' => [
+                'Hexagonal architecture concepts for domain isolation',
+                'Symfony service orchestration for core use-cases',
+                'Modular customization approach for Prestashop',
+                'Incremental refactoring strategy to avoid regressions',
+            ],
+            'result' => [
+                'Improved maintainability and onboarding speed',
+                'Lower change risk in critical backend areas',
+                'Clearer technical foundations for future feature work',
             ],
         ],
     ],
 
-    'case_studies' => [
-        [
-            'slug' => 'service-vin',
-            'title' => 'Service Vin - Logistics & Payment Automation',
-            'problem' => 'Manual logistics and payment workflows were time-consuming and error-prone.',
-            'solution' => 'Developed a Laravel application integrating Stripe and multiple FedEx APIs.',
-            'architecture' => [
-                'Laravel',
-                'PostgreSQL',
-                'Docker',
-                'External API integrations',
-            ],
-            'results' => [
-                'Reduced manual operations',
-                'Improved shipping workflow',
-                'Centralized order management',
-            ],
-        ],
+    'skills' => [
+        'Backend' => ['PHP', 'Laravel', 'Symfony'],
+        'Database' => ['PostgreSQL', 'MySQL'],
+        'Frontend' => ['Tailwind CSS', 'Livewire', 'React', 'Angular'],
+        'DevOps' => ['Docker', 'Git', 'Linux'],
+        'Architecture' => ['SOLID', 'DDD', 'Hexagonal Architecture', 'API Design'],
+    ],
 
+    'statistics' => [
         [
-            'slug' => 'akkezxla-cdm-2026',
-            'title' => 'World Cup Prediction Platform',
-            'problem' => 'Need for a platform allowing users to track and predict World Cup results.',
-            'solution' => 'Built a Laravel application consuming football-data.org APIs.',
-            'architecture' => [
-                'Laravel',
-                'Docker',
-                'API-first approach',
-                'Responsive design',
-            ],
-            'results' => [
-                'Production deployment on Render',
-                'Full end-to-end ownership',
-                'Modern Laravel architecture',
-            ],
+            'label' => 'Years Experience',
+            'value' => 4,
+            'suffix' => '+',
+        ],
+        [
+            'label' => 'Projects Delivered',
+            'value' => 10,
+            'suffix' => '+',
+        ],
+        [
+            'label' => 'Laravel Specialist',
+            'value' => 100,
+            'suffix' => '%',
+        ],
+        [
+            'label' => 'Freelance & Agency Experience',
+            'value' => 2,
+            'suffix' => ' Tracks',
+        ],
+    ],
+
+    'social_links' => [
+        [
+            'label' => 'GitHub',
+            'url' => 'https://github.com/Paul-Serrano',
+        ],
+        [
+            'label' => 'LinkedIn',
+            'url' => 'https://www.linkedin.com/in/serrano-paul/',
         ],
     ],
 ];

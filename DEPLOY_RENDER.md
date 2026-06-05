@@ -29,6 +29,35 @@ After first deploy, set your real Render URL in `APP_URL`:
   - `https://portfolio-web-xxxx.onrender.com`
 - Trigger a manual deploy.
 
+## Contact Form In Production
+
+By default, Laravel uses `MAIL_MAILER=log`, which logs messages instead of sending them.
+To make the contact form deliver real emails on Render, configure a real mail provider.
+
+Minimum environment variables to set in Render:
+
+- `MAIL_MAILER=smtp`
+- `MAIL_HOST=<your-smtp-host>`
+- `MAIL_PORT=<your-smtp-port>`
+- `MAIL_USERNAME=<your-smtp-username>`
+- `MAIL_PASSWORD=<your-smtp-password>`
+- `MAIL_ENCRYPTION=tls` (or `ssl` depending on provider)
+- `MAIL_FROM_ADDRESS=<verified-sender@your-domain>`
+- `MAIL_FROM_NAME=Paul Serrano Portfolio`
+
+Example providers:
+
+- Resend SMTP
+- Mailgun SMTP
+- SendGrid SMTP
+- Postmark SMTP
+
+After setting these vars:
+
+1. Redeploy the service.
+2. Submit the contact form once.
+3. Check Render logs to confirm no mail transport errors.
+
 ## Notes
 
 - Migrations run automatically at container startup.

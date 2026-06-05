@@ -6,6 +6,56 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Space Grotesk', 'Segoe UI', sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+}
+
+:root {
+    --background: #0f172a;
+    --surface: #1e293b;
+    --primary: #8b5cf6;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+}
+
+body {
+    background: radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.1), transparent 30%),
+        radial-gradient(circle at 82% 24%, rgba(14, 165, 233, 0.09), transparent 28%),
+        var(--background);
+    color: var(--text);
+}
+
+.nav-link {
+    @apply transition-colors duration-200 hover:text-slate-100;
+}
+
+.nav-link.is-active {
+    @apply text-violet-300;
+}
+
+.terminal-code {
+    font-family: var(--font-mono), monospace;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
 }
