@@ -9,6 +9,7 @@ return [
         'intro' => 'Backend engineer focused on clean architecture, API integrations, and shipping reliable products from concept to production.',
         'location' => 'France',
         'email' => 'paul.serrano08374@gmail.com',
+        'phone' => '+33 6 24 23 24 27',
         'resume_url' => '#',
     ],
 

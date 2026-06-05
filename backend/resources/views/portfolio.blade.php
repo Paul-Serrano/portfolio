@@ -262,6 +262,7 @@ then optimize with product context."</code></pre>
             <div class="mt-10 grid gap-8 lg:grid-cols-[0.45fr_0.55fr]">
                 <div class="space-y-5 rounded-2xl border border-slate-800 bg-slate-900/70 p-6">
                     <p class="text-sm text-slate-300"><span class="font-semibold text-slate-100">Email:</span> <a class="text-violet-300 hover:text-violet-200" href="mailto:{{ $profile['email'] }}">{{ $profile['email'] }}</a></p>
+                    <p class="text-sm text-slate-300"><span class="font-semibold text-slate-100">Phone:</span> <a class="text-violet-300 hover:text-violet-200" href="tel:{{ $profile['phone'] }}">{{ $profile['phone'] }}</a></p>
                     @foreach ($socialLinks as $social)
                         <p class="text-sm text-slate-300"><span class="font-semibold text-slate-100">{{ $social['label'] }}:</span> <a class="text-violet-300 hover:text-violet-200" href="{{ $social['url'] }}" target="_blank" rel="noopener noreferrer">{{ $social['url'] }}</a></p>
                     @endforeach
