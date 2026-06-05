@@ -13,4 +13,12 @@ backend/storage/framework/views/*
 infra/docker/dev
 infra/docker/prod
 
+!infra/docker/dev/php/Dockerfile
+!infra/docker/dev/php/conf.d/local.ini
+!infra/docker/dev/php/conf.d/xdebug.ini
+!infra/docker/prod/php/Dockerfile
+!infra/docker/prod/php/conf.d/local.ini
+!infra/docker/prod/nginx/Dockerfile
+!infra/docker/prod/nginx/default.conf
+
 **/.DS_Store
