@@ -8,7 +8,8 @@ class PortfolioController extends Controller
 {
     public function __invoke(): View
     {
-        $portfolio = config('portfolio');
+        $configKey = app()->getLocale() === 'fr' ? 'portfolio_fr' : 'portfolio';
+        $portfolio = config($configKey, config('portfolio'));
 
         return view('portfolio', [
             'portfolio' => $portfolio,

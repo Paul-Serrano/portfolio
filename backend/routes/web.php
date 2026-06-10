@@ -5,6 +5,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', PortfolioController::class)->name('portfolio.home');
 
+Route::get('/locale/{locale}', function (string $locale) {
+    if (!in_array($locale, ['en', 'fr'], true)) {
+        abort(404);
+    }
+
+    session(['locale' => $locale]);
+
+    return redirect()->back();
+})->name('locale.switch');
+
 Route::get('/sitemap.xml', function () {
     $pages = [
         [

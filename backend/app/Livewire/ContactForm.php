@@ -25,16 +25,18 @@ class ContactForm extends Component
 
         try {
             Mail::raw($this->message, function ($mail): void {
-                $mail->to(config('portfolio.profile.email'))
+                $configKey = app()->getLocale() === 'fr' ? 'portfolio_fr' : 'portfolio';
+
+                $mail->to(data_get(config($configKey), 'profile.email', config('portfolio.profile.email')))
                     ->replyTo($this->email, $this->name)
-                    ->subject('Portfolio contact from '.$this->name);
+                    ->subject(__('portfolio.form.subject', ['name' => $this->name]));
             });
 
             $this->reset(['name', 'email', 'message']);
             $this->sent = true;
         } catch (\Throwable $e) {
             report($e);
-            $this->addError('send', 'Message could not be sent right now. Please email me directly.');
+            $this->addError('send', __('portfolio.form.send_error'));
         }
     }
 

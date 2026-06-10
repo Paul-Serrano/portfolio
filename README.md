@@ -6,7 +6,22 @@ Docker-first Laravel portfolio project with local development and Render product
 
 - Local development stack is running with Docker.
 - Production deployment on Render is live.
-- Default Laravel starter page is currently used as the landing page.
+- Portfolio landing page is implemented.
+- Bilingual support is available (English/French) with a top-bar language switcher.
+
+## Portfolio Language Support
+
+- Supported locales: `en` and `fr`
+- Language switch UI: 🇬🇧 / 🇫🇷 flags in the top navigation next to the name
+- Locale switch route: `/locale/{locale}` (`en` or `fr`)
+- Locale persistence: session-based middleware
+
+Content and translation sources:
+
+- English content: `backend/config/portfolio.php`
+- French content: `backend/config/portfolio_fr.php`
+- UI strings (EN): `backend/lang/en/portfolio.php`
+- UI strings (FR): `backend/lang/fr/portfolio.php`
 
 ## Tech Stack
 
@@ -157,11 +172,11 @@ If needed, restart the stack after clearing caches.
 ## Additional Project Docs
 
 - COPILOT_DOCKER_SETUP.md
-- COPILOT_INSTRUCTIONS.md
+- COPILOT_PORTFOLIO_INSTRUCTIONS.md
 - DEPLOY_RENDER.md
 
 ## Suggested Next Steps
 
-- Replace default Laravel welcome page with portfolio sections from COPILOT_INSTRUCTIONS.md.
-- Move portfolio content into config/portfolio.php for content-driven rendering.
+- Add localized validation messages for Livewire forms in French.
+- Add automated feature tests for locale switching and translated content rendering.
 - Add CI checks for PHP linting and basic feature tests.

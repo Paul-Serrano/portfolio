@@ -66,6 +66,30 @@ All website content must come from this configuration file.
 
 Avoid hardcoded content inside Blade templates.
 
+## Internationalization (Required)
+
+The portfolio must support two languages:
+
+* English (`en`)
+* French (`fr`)
+
+Requirements:
+
+* Provide a complete French version of the portfolio content.
+* Keep content configuration-driven (no database).
+* Use locale-aware translations for static UI labels.
+* Add two flag controls in the top bar next to the developer name:
+    * 🇬🇧 for English
+    * 🇫🇷 for French
+* Clicking a flag must switch the language and keep navigation user-friendly.
+
+Recommended implementation:
+
+* `config/portfolio.php` for English content
+* `config/portfolio_fr.php` for French content
+* `lang/en/portfolio.php` and `lang/fr/portfolio.php` for UI strings
+* Locale persisted in session via a web middleware
+
 ---
 
 # Design Direction
